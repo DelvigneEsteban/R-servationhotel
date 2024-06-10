@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('img/photo-hotel-paris.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #header {
+            background-color: aliceblue;
+            width: 1000px;
+            height: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            vertical-align: middle;
+        }
+        #tableau {
+        margin-right: 30%;
+            margin-top: 20px;
+            background-color: aliceblue;
+            width: fit-content;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function updateValue(id, increment) {
+            let element = document.getElementById(id);
+            let currentValue = parseInt(element.textContent);
+            currentValue += increment;
+            if (currentValue < 0) {
+                currentValue = 0; // Ensure the value doesn't go below 0
+            }
+            element.textContent = currentValue;
+        }
+        
+        function addAdulte() {
+            updateValue("nbadulte", 1);
+        }
+        
+        function removeAdulte() {
+            updateValue("nbadulte", -1);
+        }
+
+        function addEnfant() {
+            updateValue("nbenfant", 1);
+        }
+        
+        function removeEnfant() {
+            updateValue("nbenfant", -1);
+        }
+
+        function addChambre() {
+            updateValue("nbchambre", 1);
+        }
+        
+        function removeChambre() {
+            updateValue("nbchambre", -1);
+        }
+    </script>
+    <div id="header" align="center">
+        <h1>BOOKING HOTEL</h1>
+        <h3>Indiquez vos dates de réservation - Toute annulation doit se faire 48h avant</h3>
+    </div>
+    <div id="tableau" >
+        <table border="1">
+            <tr>
+                <td width="80px" colspan="2"><img src="img/logo.png" height="90px" width="100px"></td>
+                <td colspan="2"><h3>France - Étranger</h3></td>
+            </tr>
+            <tr>
+                <td colspan="2">Lieu du séjour</td>
+                <td colspan="2"><input type="text" name="Lieu"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Arrivée 
+                    <br>
+                    <input type="date" name="Arrivee">
+                </td>
+                <td colspan="2">Départ
+                    <br>
+                    <input type="date" name="depart">
+                </td>
+            </tr>
+            <tr>
+                <td>Adulte</td>
+                <td><span class="number" id="nbadulte">0</span></td>
+                <td><button onclick="addAdulte()"><img src="img/plus.png" height="70px" width="90px"></button></td>
+                <td><button onclick="removeAdulte()"><img src="img/moins.png" height="70px" width="90px"></button></td>
+            </tr>
+            <tr>
+                <td>Enfant</td>
+                <td><span class="number" id="nbenfant">0</span></td>
+                <td><button onclick="addEnfant()"><img src="img/plus.png" height="70px" width="90px"></button></td>
+                <td><button onclick="removeEnfant()"><img src="img/moins.png" height="70px" width="90px"></button></td>
+            </tr>
+            <tr>
+                <td>Chambre</td>
+                <td><span class="number" id="nbchambre">0</span></td>
+                <td><button onclick="addChambre()"><img src="img/plus.png" height="70px" width="90px"></button></td>
+                <td><button onclick="removeChambre()"><img src="img/moins.png" height="70px" width="90px"></button></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="submit" value="Rechercher"></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="submit" value="Effacer"></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="radio" name="boolean"> Je voyage pour le travail</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
